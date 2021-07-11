@@ -24,6 +24,10 @@ dependencies {
     compile 'de.jensd:fontawesomefx-octicons:4.3.0-9.1.2'
     compile 'de.jensd:fontawesomefx-weathericons:2.0.10-9.1.2'
     compile 'org.controlsfx:controlsfx:9.0.0'
+
+    compile "org.openjfx:javafx-graphics:11.0.2:win"
+    compile "org.openjfx:javafx-graphics:11.0.2:linux"
+    compile "org.openjfx:javafx-graphics:11.0.2:mac"
 }
 
 javafx {
@@ -32,7 +36,7 @@ javafx {
 }
 
 application {
-    mainClassName = 'com.github.mateuszpach.Sokoban.Start'
+    mainClassName = 'com.github.mateuszpach.Asunkoban.Start'
 }
 
 wrapper {

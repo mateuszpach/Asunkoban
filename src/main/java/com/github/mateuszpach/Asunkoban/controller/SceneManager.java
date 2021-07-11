@@ -1,4 +1,4 @@
-package com.github.mateuszpach.Sokoban.controller;
+package com.github.mateuszpach.Asunkoban.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,11 +28,11 @@ public class SceneManager {
 
         GameController.registerKeyHandlers(scene);
 
-        stage.setTitle("Sokoban");
+        stage.setTitle("Asunkoban");
         stage.setScene(scene);
-        stage.setMinWidth(1000);
+        stage.setMinWidth(1100);
         stage.setMinHeight(800);
-        stage.getIcons().add(new Image("/img/icon.png"));
+        stage.getIcons().add(new Image("/img/asuna124.png"));
         stage.show();
     }
 

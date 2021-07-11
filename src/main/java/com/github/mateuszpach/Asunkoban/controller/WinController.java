@@ -1,4 +1,4 @@
-package com.github.mateuszpach.Sokoban.controller;
+package com.github.mateuszpach.Asunkoban.controller;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;

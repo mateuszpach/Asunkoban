@@ -1,13 +1,12 @@
-package com.github.mateuszpach.Sokoban.controller;
+package com.github.mateuszpach.Asunkoban.controller;
 
-import com.github.mateuszpach.Sokoban.model.Game;
-import com.github.mateuszpach.Sokoban.model.Level;
+import com.github.mateuszpach.Asunkoban.model.Game;
+import com.github.mateuszpach.Asunkoban.model.Level;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.NumberBinding;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 
@@ -44,18 +43,12 @@ public class GameController {
             if (direction != null) {
                 ArrayList<Game.Update> updates = Game.move(direction);
                 for (Game.Update update : updates) {
-                    Circle circle = (Circle) gameController.squares.get(update.prev.x).get(update.prev.y).getChildren().get(0);
-                    gameController.squares.get(update.curr.x).get(update.curr.y).getChildren().add(circle);
-//                    switch (update.type) {
-//                        case BOX:
-//                            Circle circle = (Circle) gameController.squares.get(update.prev.x).get(update.prev.y).getChildren().get(0);
-//                            gameController.squares.get(update.curr.x).get(update.curr.y).getChildren().add(circle);
-//                            break;
-//                        case PLAYER:
-//                            Circle circle2 = (Circle) gameController.squares.get(update.prev.x).get(update.prev.y).getChildren().get(0);
-//                            gameController.squares.get(update.curr.x).get(update.curr.y).getChildren().add(circle2);
-//                            break;
-//                    }
+                    ObservableList<String> style = gameController.squares.get(update.prev.x).get(update.prev.y).
+                            getChildren().get(0).getStyleClass();
+                    gameController.squares.get(update.curr.x).get(update.curr.y).
+                            getChildren().get(0).getStyleClass().addAll(style);
+                    gameController.squares.get(update.prev.x).get(update.prev.y).
+                            getChildren().get(0).getStyleClass().clear();
                 }
                 if (Game.is_finished()) {
                     SceneManager.changeScene(SceneManager.SceneType.WIN);
@@ -95,43 +88,39 @@ public class GameController {
             squares.add(new ArrayList<>());
             for (Level.Field field : row) {
                 Pane square = new AnchorPane();
-//                square.getChildren().add(new Label(rowI + " " + colI));
+                Pane squareIn = new AnchorPane();
+                AnchorPane.setTopAnchor(squareIn, 0.0);
+                AnchorPane.setRightAnchor(squareIn, 0.0);
+                AnchorPane.setBottomAnchor(squareIn, 0.0);
+                AnchorPane.setLeftAnchor(squareIn, 0.0);
+                square.getChildren().add(squareIn);
+
                 squares.get(rowI).add(square);
-                String color;
+
+
+                square.getStyleClass().add("square");
 
                 if (field.type == Level.Field.FieldType.WALL) {
-                    color = "#516A7B";
-                } else if (field.type == Level.Field.FieldType.EMPTY) {
-                    color = "#FCFAFA";
-                } else {
-                    color = "#B2FBCA";
+                    square.getStyleClass().add("wall");
+                }
+
+                if (field.type == Level.Field.FieldType.TARGET) {
+                    square.getStyleClass().add("roll-gray");
+                }
+
+                if (field.hasBox) {
+                    squareIn.getStyleClass().add("roll");
                 }
 
                 square.setPrefSize(Double.MAX_VALUE, Double.MAX_VALUE);
 
-                if (field.hasBox) {
-                    Circle boxCircle = new Circle();
-                    boxCircle.centerXProperty().bind(square.widthProperty().divide(2));
-                    boxCircle.centerYProperty().bind(square.heightProperty().divide(2));
-                    boxCircle.radiusProperty().bind(square.heightProperty().divide(4));
-                    boxCircle.setFill(Color.web("#0CCA4A"));
-                    square.getChildren().add(boxCircle);
-                }
-
-                square.setStyle("-fx-background-color: " + color + ";");
                 gridPane.add(square, colI, rowI);
                 colI++;
             }
             rowI++;
         }
 
-        Circle playerCircle = new Circle();
-        Pane square = squares.get(0).get(0);
-        playerCircle.centerXProperty().bind(square.widthProperty().divide(2));
-        playerCircle.centerYProperty().bind(square.heightProperty().divide(2));
-        playerCircle.radiusProperty().bind(square.heightProperty().divide(4));
-        playerCircle.setFill(javafx.scene.paint.Color.RED);
-        squares.get(level.playerPos.x).get(level.playerPos.y).getChildren().add(playerCircle);
+        squares.get(level.playerPos.x).get(level.playerPos.y).getChildren().get(0).getStyleClass().add("asuna");
     }
 
     public void initialize() {

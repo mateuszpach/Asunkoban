@@ -1,4 +1,4 @@
-package com.github.mateuszpach.Sokoban.model;
+package com.github.mateuszpach.Asunkoban.model;
 
 import java.util.ArrayList;
 import java.util.Collections;

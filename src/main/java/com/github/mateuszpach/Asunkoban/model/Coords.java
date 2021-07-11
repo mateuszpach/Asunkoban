@@ -1,4 +1,4 @@
-package com.github.mateuszpach.Sokoban.model;
+package com.github.mateuszpach.Asunkoban.model;
 
 public class Coords {
     public int x;

@@ -1,6 +1,6 @@
-package com.github.mateuszpach.Sokoban;
+package com.github.mateuszpach.Asunkoban;
 
-import com.github.mateuszpach.Sokoban.controller.SceneManager;
+import com.github.mateuszpach.Asunkoban.controller.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

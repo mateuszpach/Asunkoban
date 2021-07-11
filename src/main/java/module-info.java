@@ -5,7 +5,7 @@ module GRAPH_moment {
     requires com.jfoenix;
 
     // specify the package the uses the modules
-    opens com.github.mateuszpach.Sokoban to javafx.fxml, javafx.controls;
+    opens com.github.mateuszpach.Asunkoban to javafx.fxml, javafx.controls;
 
-    exports com.github.mateuszpach.Sokoban;
+    exports com.github.mateuszpach.Asunkoban;
 }

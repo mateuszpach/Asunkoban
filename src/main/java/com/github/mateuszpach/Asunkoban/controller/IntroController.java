@@ -1,6 +1,6 @@
-package com.github.mateuszpach.Sokoban.controller;
+package com.github.mateuszpach.Asunkoban.controller;
 
-import com.github.mateuszpach.Sokoban.model.Game;
+import com.github.mateuszpach.Asunkoban.model.Game;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.scene.control.Label;

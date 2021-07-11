@@ -1,4 +1,4 @@
-package com.github.mateuszpach.Sokoban;
+package com.github.mateuszpach.Asunkoban;
 
 public class Start {
     public static void main(String[] args) {
