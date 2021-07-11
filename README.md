@@ -28,7 +28,7 @@ visit [wikipedia](https://en.wikipedia.org/wiki/Sokoban).
 
 ## Release
 
-You can download Asunkoban app [here](https://github.com/mateuszpach/Sokoban/releases/tag/v1.0).
+You can download Asunkoban app [here](https://github.com/mateuszpach/Asunkoban/releases/tag/v1.0).
 
 ## Building
 
